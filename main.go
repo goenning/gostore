@@ -2,21 +2,25 @@ package main
 
 import (
 	"fmt"
-	"html/template"
 	"net/http"
+
+	"os"
+
+	"github.com/goenning/gostore/handlers"
+	"github.com/gorilla/mux"
 )
 
-func index(w http.ResponseWriter, r *http.Request) {
-	tpl, _ := template.ParseFiles("index.html")
-	data := map[string]string{
-		"Title": "Go Store :)",
+func getPort() string {
+	port := os.Getenv("PORT")
+	if port != "" {
+		return port
 	}
-	w.WriteHeader(http.StatusOK)
-	tpl.Execute(w, data)
+	return "8080"
 }
 
 func main() {
-	http.HandleFunc("/", index)
+	r := mux.NewRouter()
+	r.HandleFunc("/", handlers.Index)
 	fmt.Println("Server is up and listening on port 8080.")
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":"+getPort(), r)
 }
