@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"html/template"
 	"net/http"
 
 	"github.com/goenning/gostore/models"
@@ -9,7 +8,6 @@ import (
 
 //Index is our main page handler
 func Index(w http.ResponseWriter, r *http.Request) {
-	tpl, _ := template.ParseFiles("index.html")
 	products := []models.Product{
 		{
 			Title: "iMac 27\" 5K",
@@ -24,6 +22,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Title:    "Go Store :)",
 		Products: products,
 	}
+
 	w.WriteHeader(http.StatusOK)
-	tpl.Execute(w, data)
+	render(w, "index.html", data)
 }

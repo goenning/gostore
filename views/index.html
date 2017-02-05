@@ -10,7 +10,7 @@
 
     <ul>
         {{range .Products}}
-            <li>{{.Title}}</li>
+            <li>{{.Title}}: {{.Price | currency}}</li>
         {{end}}
     </ul>
     </body>

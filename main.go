@@ -3,24 +3,24 @@ package main
 import (
 	"fmt"
 	"net/http"
-
 	"os"
 
 	"github.com/goenning/gostore/handlers"
 	"github.com/gorilla/mux"
 )
 
-func getPort() string {
-	port := os.Getenv("PORT")
-	if port != "" {
-		return port
+func getEnvOrDefault(env string, def string) string {
+	v := os.Getenv(env)
+	if v != "" {
+		return v
 	}
-	return "8080"
+	return def
 }
 
 func main() {
+	port := getEnvOrDefault("PORT", "8080")
 	r := mux.NewRouter()
 	r.HandleFunc("/", handlers.Index)
-	fmt.Println("Server is up and listening on port 8080.")
-	http.ListenAndServe(":"+getPort(), r)
+	fmt.Printf("Server is up and listening on port %s.\n", port)
+	http.ListenAndServe(":"+port, r)
 }
