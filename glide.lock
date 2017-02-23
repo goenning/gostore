@@ -1,10 +1,6 @@
-hash: 73341b980b34a13f50533e9cc99115eef31840573815fab547916cc93b891170
-updated: 2017-02-05T12:46:11.495543Z
+hash: a97ca079eef6b4ca87f8e7af7c75ed36c92cdc667a78c2b028bd5cf6db5773c6
+updated: 2017-02-23T19:09:48.00302166Z
 imports:
-- name: github.com/dustin/go-humanize
-  version: 7a41df006ff9af79a29f0ffa9c5f21fbe6314a2d
 - name: github.com/gorilla/mux
   version: 392c28fe23e1c45ddba891b0320b3b5df220beea
-- name: github.com/leekchan/accounting
-  version: a35854c075934d6aa1a6c1ab3ea8a82ee0dc1a93
 testImports: []

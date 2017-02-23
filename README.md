@@ -2,7 +2,7 @@
 
 Use the following command to run this app.
 
-> go run maing.go
+> go run main.go
 
 #### This app is the outcome of a blog series I'm writing about web applications using Go
 
