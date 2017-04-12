@@ -2,3 +2,5 @@ package: github.com/goenning/gostore
 import:
 - package: github.com/gorilla/mux
   version: ^1.3.0
+- package: github.com/leekchan/accounting
+  version: v0.2
